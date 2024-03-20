@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}
+    INFOS - Votre Application
+{% endblock %}
+
+{% block content %}
+
+<h2>Nombre de véhicules: {{ nb_vehicules }}</h2>
+<h2>Nombre de conducteurs: {{ nb_conducteurs }}</h2>
+
+<!-- Carte avec les montants totaux versés par conducteur -->
+<div class="card">
+    <div class="card-header">
+        Montants versés par conducteur
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for conducteur in montants_par_conducteur %}
+        <li class="list-group-item">{{ conducteur.conducteur.nom }} {{ conducteur.conducteur.prenom }} : {{ conducteur.total_montant }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Graphique d'évolution des versements -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div id="graphique"></div>
+<script>
+    var data = [
+        { x: [{% for item in versements_journaliers %} "{{ item.date }}", {% endfor %}], y: [{% for item in versements_journaliers %} "{{ item.total_versement }}", {% endfor %}], type: 'scatter', name: 'Journalier' },
+        { x: [{% for item in versements_semestriels %} "{{ item.date }}", {% endfor %}], y: [{% for item in versements_semestriels %} "{{ item.total_versement }}", {% endfor %}], type: 'scatter', name: 'Semestriel' },
+        { x: [{% for item in versements_mensuels %} "{{ item.date }}", {% endfor %}], y: [{% for item in versements_mensuels %} "{{ item.total_versement }}", {% endfor %}], type: 'scatter', name: 'Mensuel' }
+    ];
+    var layout = { title: 'Évolution des versements', xaxis: { title: 'Date' }, yaxis: { title: 'Montant total versé' } };
+    Plotly.newPlot('graphique', data, layout);
+</script>
+
+
+
+{% endblock %}

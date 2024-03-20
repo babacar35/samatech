@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon application Django</title>
+</head>
+<body>
+    <!-- Entête de la page -->
+    <header>
+        <h1>Bienvenue dans mon application Django</h1>
+        <!-- Menu de navigation -->
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/conducteurs/">Liste des conducteurs</a></li>
+                <li><a href="/vehicules/">Liste des véhicules</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal de la page -->
+    <main>
+        <h2>Liste des conducteurs</h2>
+        <!-- Tableau pour afficher les conducteurs -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur les conducteurs pour afficher chaque conducteur -->
+                {% for conducteur in conducteurs %}
+                <tr>
+                    <td>{{ conducteur.nom }}</td>
+                    <td>{{ conducteur.prenom }}</td>
+                    <td>{{ conducteur.telephone }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Mon application auto</p>
+    </footer>
+</body>
+</html>

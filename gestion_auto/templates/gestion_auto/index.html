@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+
+{% block title %}
+    Liste des véhicules - Votre Application
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Liste des véhicules</h1>
+    <div class="row">
+        {% for vehicule in vehicules %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                {% if vehicule.photo %}
+                <img src="{{ vehicule.photo.url }}" alt="{{ vehicule.marque }}">
+                {% else %}
+                    <p>Aucune image disponible pour ce véhicule</p>
+                {% endif %}
+            
+                <div class="card-body">
+                    <h5 class="card-title">{{ vehicule.marque }}</h5>
+                    <p class="card-text">Modèle: {{ vehicule.modele }}</p>
+                    <p class="card-text">Année: {{ vehicule.annee }}</p>
+                    <!-- Ajoutez d'autres informations des véhicules ici -->
+                    <!-- Ajoutez d'autres détails ici -->
+                    <a href="{% url 'detail_vehicule' vehicule.slug %}" class="btn btn-primary">Voir les détails</a>
+                    <a href="{% url 'conducteurs_tables' %}" class="btn btn-primary">tables</a>
+                
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

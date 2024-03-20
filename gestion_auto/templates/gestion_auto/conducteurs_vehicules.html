@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des conducteurs et véhicules</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Liste des conducteurs et véhicules</h1>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nom du conducteur</th>
+                    <th>Photo</th>
+                    <th>Marque de voiture</th>
+                    <th>Type de versement</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for conducteur in conducteurs %}
+                <tr>
+                    <td>{{ conducteur.affectation.conducteur.nom }} {{ conducteur.affectation.conducteur.prenom }}</td>
+                    <td>
+                        {% if conducteur.affectation.conducteur.photo %}
+                        <img src="{{ conducteur.affectation.conducteur.photo.url }}" alt="{{ conducteur.affectation.conducteur.nom }}" style="max-height: 100px;">
+                        {% else %}
+                        Pas de photo
+                        {% endif %}
+                    </td>
+                    <td>{{ conducteur.affectation.vehicule.marque }}</td>
+                    <td>{{ conducteur.type_versement }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Script Bootstrap JS (optionnel) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+
+
+
+
+<h1>{{ vehicule.marque }}</h1>
+{% if vehicule.photo %}
+    <img src="{{ vehicule.photo.url }}" alt="{{ vehicule.marque }}">
+    {% else %}
+    <p>Aucune image disponible pour ce véhicule</p>
+{% endif %}
