@@ -15,15 +15,19 @@
     
 
     </nav>
+   
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+      {% if request.user.is_authenticated %}
        <nav>
-        
         <div class="container-fluid ">
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto list-group border border-3 bg-light ">
               <li class="nav-item list-group">
-                <a class="nav-link fs-5" href="{% url 'index'   %}">Page Vehicules</a>
+                <a class="nav-link fs-5" href="{% url 'gestion_auto_accueil'   %}">Accueil</a>
+              </li>
+              <li class="nav-item list-group">
+                <a class="nav-link fs-5 border-start border-3" href="{% url 'index'   %}">Page Vehicules</a>
               </li>
               <li class="nav-item list-group">
                 <a class="nav-link fs-5 border-start border-3" href="#">Page Conducteurs</a>
@@ -33,6 +37,7 @@
           </div>
         </div>
        </nav>
+      {% endif %}
       </div>
       <ul class="navbar-nav  justify-content-end">
 
@@ -83,6 +88,7 @@
    
       </ul>
     </div>
+   
   </div>
 </nav>
 <!-- End Navbar -->
