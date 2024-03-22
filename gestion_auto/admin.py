@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.contrib.admin.widgets import AdminDateWidget
+from django.contrib.admin import ModelAdmin
+from django.db import models
 
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
@@ -6,6 +9,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 # Register your models here.
 from .models import Vehicule, Conducteur, AffectationVehiculeConducteur, Versement , Frais
+
 
 @admin.register(Vehicule)
 class VehiculeAdmin(admin.ModelAdmin):
@@ -32,6 +36,11 @@ class FraisAdmin(admin.ModelAdmin):
     list_display = ['date', 'type', 'description', 'cout','vehicule','Facture']
     search_fields = ('type',)  # Champ pour la recherche par nom de conducteur
     list_filter = ('date',)  # Filtre par date
+    formfield_overrides= {
+        models.DateField:{
+            'widget':AdminDateWidget()
+        }
+    }
 
 
 

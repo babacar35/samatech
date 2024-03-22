@@ -14,3 +14,5 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Gestion_Vehicules.settings')
 
 application = get_wsgi_application()
+#ajouter pour le deploiement
+app = application
