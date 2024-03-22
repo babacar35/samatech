@@ -14,6 +14,8 @@ class VehiculeAdmin(admin.ModelAdmin):
 @admin.register(Conducteur)
 class ConducteurAdmin(admin.ModelAdmin):
     list_display = ['nom', 'prenom', 'adresse', 'telephone', 'numero_permis', 'date_naissance', 'date_embauche', 'montant_journalier', 'montant_semestriel', 'montant_mensuel']
+    search_fields = ('nom','prenom','numero_permis')  # Champ pour la recherche par nom de conducteur
+    #list_filter = ('date_naissance',)  # Filtre par date
 
 @admin.register(AffectationVehiculeConducteur)
 class AffectationVehiculeConducteurAdmin(admin.ModelAdmin):
