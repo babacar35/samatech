@@ -1,14 +1,20 @@
 {
-"builds":[{
-    "src":"Gestion_Vehicules/wsgi.py",
-    "use":"@vercel/python",
-    "config":{"maxLambdasize":"15mb","runtime":"python3.12.1"}
-
-}],
-"routes":[{
-    "src":"/(.*)",
-    "dest":"Gestion_Vehicules/wsgi.py"
-}]
-
-
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "Gestion_Vehicules/wsgi.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "15mb",
+          "runtime": "python3.12.1"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "Gestion_Vehicules/wsgi.py"
+      }
+    ]
+  }
+  
