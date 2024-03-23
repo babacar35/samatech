@@ -8,8 +8,8 @@ from .models import Vehicule, Conducteur, Versement, AffectationVehiculeConducte
 
 # Dans votre vue Django
 
-import matplotlib.pyplot as plt
-import pandas as pd
+# import matplotlib.pyplot as plt
+# import pandas as pd
 
 #paginations 
 from django.core.paginator import Paginator
