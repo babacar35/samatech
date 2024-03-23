@@ -4,7 +4,7 @@ contourpy==1.2.0
 cycler==0.12.1
 Django==4.2.11
 django-admin-material-dashboard==1.0.10
-django-admin-soft-dashboard==1.0.12
+
 django-bootstrap-v5==1.0.11
 django-paginator==0.2a3
 Faker==24.0.0
