@@ -28,4 +28,3 @@ urlpatterns = [
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 #ajouter pour le deploiement test
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
